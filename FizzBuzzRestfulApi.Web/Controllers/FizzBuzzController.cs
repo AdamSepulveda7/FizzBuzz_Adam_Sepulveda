@@ -25,14 +25,9 @@ namespace FizzBuzzRestfulApi.Web.Controllers
         public IEnumerable<string> GetClassic()
         {
             var result = _FizzBuzzApi.Classic();
-            //if (result == null)
-            //    return (IEnumerable<string>)StatusCode(404);
-            //else
-            //    return (IEnumerable<string>)StatusCode(201, result);
             return result;
-            //throw new NotImplementedException();
         }
-        [HttpPost]
+        [HttpGet]
         public IEnumerable<string> GetAdvanced()
         {
             var result = _FizzBuzzApi.Advanced();
