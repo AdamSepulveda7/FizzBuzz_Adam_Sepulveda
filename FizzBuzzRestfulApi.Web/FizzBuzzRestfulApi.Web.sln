@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31410.357
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FizzBuzzRestfulApi.Web", "FizzBuzzRestfulApi.Web.csproj", "{1409F973-EAA6-492C-889B-7D2B34D374BD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FizzBuzzRestfulApi.Tests", "..\FizzBuzzRestfulApi.Tests\FizzBuzzRestfulApi.Tests.csproj", "{12F65784-6568-4AE7-B861-542012E8E116}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1409F973-EAA6-492C-889B-7D2B34D374BD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1409F973-EAA6-492C-889B-7D2B34D374BD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1409F973-EAA6-492C-889B-7D2B34D374BD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1409F973-EAA6-492C-889B-7D2B34D374BD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{12F65784-6568-4AE7-B861-542012E8E116}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{12F65784-6568-4AE7-B861-542012E8E116}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{12F65784-6568-4AE7-B861-542012E8E116}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{12F65784-6568-4AE7-B861-542012E8E116}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {EDC28F93-6554-4DEA-9004-E28AF8418209}
+	EndGlobalSection
+EndGlobal
