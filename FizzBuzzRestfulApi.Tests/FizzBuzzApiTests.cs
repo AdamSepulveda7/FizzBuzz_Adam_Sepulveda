@@ -1,5 +1,7 @@
 using FizzBuzzRestfulApi.Web.Infrastructure;
+using FizzBuzzRestfulApi.Web.Models;
 using NUnit.Framework;
+using System.Collections.Generic;
 
 namespace FizzBuzzRestfulApi.Tests
 {
@@ -13,18 +15,80 @@ namespace FizzBuzzRestfulApi.Tests
         }
 
         [Test]
-        public void Test1()
+        public void ClassicPass()
         {
-            var result = _fizzBuzzApi.Classic();
-            string[] compare = { "1", "2", "Fizz", "4", "Buzz", "15" };
-            char comp = result.ToString()[0];
-            //string.IndexOf(result.ToString(),0);
-            //string i = Array.IndexOf(compare, "");
-            string i = result.ToString();
-            Assert.AreEqual(result.ToString()[0], '1');
-            Assert.AreEqual(result.ToString()[2], "Fizz");
-            Assert.AreEqual(result.ToString()[4], "Buzz");
-            Assert.AreEqual(result.ToString()[14], "FizzBuzz");
+            List<string> list = new List<string>();
+            list = (List<string>)_fizzBuzzApi.Classic();
+            Assert.AreEqual(list.IndexOf("Fizz"),2);
+            Assert.AreEqual(list.IndexOf("Buzz"),4);
+            Assert.AreEqual(list.Count,100);
+        }
+        [Test]
+        public void AdvancedPass()
+        {
+            List<string> list = new List<string>();
+            list = (List<string>)_fizzBuzzApi.Advanced();
+            Assert.AreEqual(list.IndexOf("Fizz"), 0);
+            Assert.AreEqual(list.IndexOf("Buzz"), 5);
+            Assert.AreEqual(list.IndexOf("Bazz"), 50);
+            Assert.AreEqual(list.Count, 158);
+        }
+        [Test]
+        public void CustomRangePass()
+        {
+            List<string> list = new List<string>();
+            List<DivisorTokenDto> dtoList = new List<DivisorTokenDto>();
+            DivisorTokenDto fizz = new DivisorTokenDto()
+            {
+                Divisor = 3,
+                Tokens = "Fizz"
+            };
+            DivisorTokenDto buzz = new DivisorTokenDto()
+            {
+                Divisor = 5,
+                Tokens = "Buzz"
+            }; DivisorTokenDto bazz = new DivisorTokenDto()
+            {
+                Divisor = 7,
+                Tokens = "Bazz"
+            };
+            dtoList.Add(fizz);
+            dtoList.Add(buzz);
+            dtoList.Add(bazz);
+            list = (List<string>)_fizzBuzzApi.CustomRange(-100,100,dtoList);
+            Assert.AreEqual(list.IndexOf("Fizz"), 1);
+            Assert.AreEqual(list.IndexOf("Buzz"), 0);
+            Assert.AreEqual(list.IndexOf("Bazz"), 2);
+            Assert.AreEqual(list.Count, 201);
+        }
+        [Test]
+        public void CustomSetPass()
+        {
+            List<string> list = new List<string>();
+            List<DivisorTokenDto> dtoList = new List<DivisorTokenDto>();
+            List<int> numbers = new List<int> { 3, 7, -38, 4 };
+            DivisorTokenDto fizz = new DivisorTokenDto()
+            {
+                Divisor = 3,
+                Tokens = "Fizz"
+            };
+            DivisorTokenDto buzz = new DivisorTokenDto()
+            {
+                Divisor = 7,
+                Tokens = "Buzz"
+            }; DivisorTokenDto bazz = new DivisorTokenDto()
+            {
+                Divisor = 38,
+                Tokens = "Bazz"
+            };
+            dtoList.Add(fizz);
+            dtoList.Add(buzz);
+            dtoList.Add(bazz);
+            list = (List<string>)_fizzBuzzApi.CustomSet(numbers, dtoList);
+            Assert.AreEqual(list.IndexOf("Fizz"), 0);
+            Assert.AreEqual(list.IndexOf("Buzz"), 1);
+            Assert.AreEqual(list.IndexOf("Bazz"), 2);
+            Assert.AreEqual(list.Count, 4);
         }
     }
 }

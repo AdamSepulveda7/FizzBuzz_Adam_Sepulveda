@@ -27,7 +27,7 @@ namespace FizzBuzzRestfulApi.Web.Infrastructure
                 Divisor = 5,
                 Tokens = "Buzz"
             };
-            for (int i = min; i < size+1; i++)
+            for (int i = min; i < max + 1; i++)
             {
                 if (i % fizz.Divisor == 0 && i % buzz.Divisor == 0)
                 {
@@ -53,7 +53,6 @@ namespace FizzBuzzRestfulApi.Web.Infrastructure
         {
             int min = -12;
             int max = 145;
-            int size = Math.Abs(max - min)+1;
             List<string> result = new List<string>();
             DivisorTokenDto fizz = new DivisorTokenDto()
             {
@@ -69,7 +68,7 @@ namespace FizzBuzzRestfulApi.Web.Infrastructure
                 Divisor = 38,
                 Tokens = "Bazz"
             };
-            for (int i = min; i < size-1; i++)
+            for (int i = min; i < max + 1; i++)
             {
                 if (i % fizz.Divisor == 0 && i % buzz.Divisor == 0 && i % bazz.Divisor == 0)
                 {
@@ -108,10 +107,9 @@ namespace FizzBuzzRestfulApi.Web.Infrastructure
         }
         public IEnumerable<string> CustomRange(int min, int max, [FromBody] List<DivisorTokenDto> divisorTokenDtos)
         {
-            int size = Math.Abs(max - min);
             List<string> result = new List<string>();
             
-            for (int i = min; i < size + 1; i++)
+            for (int i = min; i < max + 1; i++)
             {
                 string str = "";
                 foreach(DivisorTokenDto dto in divisorTokenDtos)
